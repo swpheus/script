@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>width.html</title>
+    <style media="screen">
+      .box div {width: 120px; height: 120px; background: #eee; font: 12px/120px arial;
+      color: #000; margin: 10px; text-align: center;}
+    </style>
+    <script src="common/jquery-3.2.1.min.js"></script>
+    <script>
+    //jQuery 통해 회색박스에 넘버를 넣어주세요
+    $(function(){ //jQuery를 쓰기전에는 $(function(){}); 이라고 선언을하고 안에 독작을시킨다.
+     $('.box div').each(function(i) {
+        //실행문 i는 첫번째는 0부터시작
+        $(this).text(i+1);
+     });
+     var array=[0,1,2,3,4,5,6,7,8,9,'a','b','c','d','e','f'];
+     $('.box div').click(function() {
+       var color="#";
+       for(i=0; i<6; i++){
+         var num=Math.random()*16;
+         num=Math.floor(num);
+         color+=array[num];
+       }
+        $(this)//jQuery 에서는 체인기술이정말 주요하다~~
+              .css('width','200px')
+              .text(($(this).index()+1)+".width :200px")
+              .parent().prev()
+              .css('color', color);
+        var num=200;
+        for(num; num<800; num++){
+            num1+=num;
+          }
+         $(this).css('width', num1);
+         });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="wrapper">
+      <h2>width</h2>
+      <div class="box">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+
+  </body>
+</html>

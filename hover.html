@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>width.html</title>
+    <style media="screen">
+      /*img{height: 100px; margin: 10px; opacity: 0.5;}*/
+      *{margin: 0; padding: 0;}
+      ul{list-style: none; overflow: hidden;}
+      ul li{float: left; width: 200px; padding: 10px; position: relative;}
+      img{width: 100%;}
+      ul li span{position: absolute; left: 10px; bottom:10px;width: 200px;
+      text-align: center; padding: 10px 0; color: #fff; background: rgba(0,0,0,0.7);}
+    </style>
+    <script src="common/jquery-3.2.1.min.js"></script>
+  </head>
+  <body>
+    <div id="wrapper">
+      <h2>hover</h2>
+      <ul class="box">
+        <li><img src="images/jo_01.jpg" alt="조인성1" /></li>
+        <li><img src="images/jo_02.jpg" alt="조인성2" /></li>
+        <li><img src="images/jo_03.jpg" alt="조인성3" /></li>
+        <li><img src="images/jo_04.jpg" alt="조인성4" /></li>
+        <li><img src="images/jo_05.jpg" alt="조인성5" /></li>
+      </ul>
+    </div>
+    <script>
+      $('.box li').css('opacity','0.5');
+      $('.box li').hover(function(){
+        var alt=$(this).find('img').attr('alt');
+        $(this).css('opacity','1').append("<span>"+alt+"</span>");
+        $(this).css('opacity', '1');
+      },function(){
+        $(this).children('span').remove();
+        $(this).css('opacity', '0.5');
+      });
+    </script>
+  </body>
+</html>
